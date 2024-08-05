@@ -36,7 +36,7 @@ export default function RandomUserPage() {
     }
     const jsonStr = JSON.stringify(genAmount);
     localStorage.setItem("amount", jsonStr);
-  },[genAmount])
+  },[isFirstLoad])
   
   useEffect(()=>{
     const convertStrToAmount = localStorage.getItem("amount");
