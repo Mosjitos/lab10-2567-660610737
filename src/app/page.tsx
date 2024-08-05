@@ -36,7 +36,7 @@ export default function RandomUserPage() {
     }
     const jsonStr = JSON.stringify(genAmount);
     localStorage.setItem("amount", jsonStr);
-  },[isFirstLoad])
+  },[genAmount])
   
   useEffect(()=>{
     const convertStrToAmount = localStorage.getItem("amount");
@@ -68,7 +68,7 @@ export default function RandomUserPage() {
         <p className="display-6 text-center fst-italic my-4">Loading ...</p>
       )}
       {users && !isLoading && users.map((Point : any)=>(
-        <UserCard{...Point}/>
+      <UserCard key = {Point.email} name = {Point.name} imgUrl={Point.imgUrl} address={Point.address} />
       ))}
     </div>
   );
